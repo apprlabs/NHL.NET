@@ -55,6 +55,24 @@ namespace NHLDotNet.Test
         }
 
         [TestMethod]
+        public void TestGetGameContent()
+        {
+            Assert.IsTrue(Client.GetGameContent(2017010075).Result.Editorials.Recap.Items.Count > 0);
+        }
+
+        [TestMethod]
+        public void TestGetGameFeed()
+        {
+            Assert.IsTrue(Client.GetGameFeed(2017010075).Result.LiveData.Plays.AllPlays.Count > 0);
+        }
+
+        [TestMethod]
+        public void TestGetPlayer()
+        {
+            Assert.AreEqual("Jason Zucker", Client.GetPlayer(8475722).Result.FullName);
+        }
+
+        [TestMethod]
         public void TestGetTodaysSchedule()
         {
             Date today = Client.GetSchedule().Result;

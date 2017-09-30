@@ -22,16 +22,16 @@ namespace NHLDotNet.Model
         public int Shots { get; set; }
 
         [JsonProperty("powerPlayPercentage")]
-        public string PowerPlayPercentage { get; set; }
+        public float PowerPlayPercentage { get; set; }
 
         [JsonProperty("powerPlayGoals")]
-        public int PowerPlayGoals { get; set; }
+        public float PowerPlayGoals { get; set; }
 
         [JsonProperty("powerPlayOpportunities")]
-        public int PowerPlayOpportunities { get; set; }
+        public float PowerPlayOpportunities { get; set; }
 
         [JsonProperty("faceOffWinPercentage")]
-        public string FaceOffWinPercentage { get; set; }
+        public float FaceOffWinPercentage { get; set; }
 
         [JsonProperty("blocked")]
         public int Blocked { get; set; }

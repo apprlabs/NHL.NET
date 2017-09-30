@@ -19,6 +19,6 @@ namespace NHLDotNet.Model
         public string TopicList { get; set; }
         
         [JsonProperty("items")]
-        public ArticleMedia Items { get; set; }
+        public List<ArticleMedia> Items { get; set; }
     }
 }
