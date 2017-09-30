@@ -7,6 +7,9 @@ using Newtonsoft.Json;
 
 namespace NHLDotNet.Model
 {
+    /// <summary>
+    /// Represents a the record for a team
+    /// </summary>
     public class LeagueRecord
     {
         [JsonProperty("wins")]

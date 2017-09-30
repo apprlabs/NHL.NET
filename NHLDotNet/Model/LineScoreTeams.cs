@@ -7,6 +7,9 @@ using Newtonsoft.Json;
 
 namespace NHLDotNet.Model
 {
+    /// <summary>
+    /// Represents the teams in the linescore
+    /// </summary>
     public class LineScoreTeams
     {
         [JsonProperty("away")]

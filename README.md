@@ -1,4 +1,4 @@
 # NHL.NET
-An API client for consuming NHL JSON data from https://statsapi.web.nhl.com/api/v1/
+A .NET SDK for consuming the NHL API @ https://statsapi.web.nhl.com/api/v1/
 
 ## Usage

@@ -17,6 +17,9 @@ namespace NHLDotNet
     /// </summary>
     public class Client
     {
+        /// <summary>
+        /// The base URI to make calls to
+        /// </summary>
         private readonly string _baseUri;
         
         /// <summary>
@@ -97,6 +100,42 @@ namespace NHLDotNet
             return JsonConvert.DeserializeObject<FranchiseResponse>(
                 await DoRequest($"franchises/{franchiseId}")
             ).Franchises[0];
+        }
+
+        /// <summary>
+        /// Gets the content for a specific game
+        /// </summary>
+        /// <param name="gameId">The ID of the game to retrieve content for</param>
+        /// <returns>The game content</returns>
+        public async Task<Content> GetGameContent(int gameId)
+        {
+            return JsonConvert.DeserializeObject<Content>(
+                await DoRequest($"game/{gameId}/content")
+            );
+        }
+
+        /// <summary>
+        /// Gets the feed for a specific game
+        /// </summary>
+        /// <param name="gameId">The ID of the game to retrieve the feed for</param>
+        /// <returns>The game feed</returns>
+        public async Task<GameFeed> GetGameFeed(int gameId)
+        {
+            return JsonConvert.DeserializeObject<GameFeed>(
+                await DoRequest($"game/{gameId}/feed/live")
+            );
+        }
+
+        /// <summary>
+        /// Gets a specific player
+        /// </summary>
+        /// <param name="playerId">The ID of the player to retrieve</param>
+        /// <returns>The player</returns>
+        public async Task<Player> GetPlayer(int playerId)
+        {
+            return JsonConvert.DeserializeObject<PlayerResponse>(
+                await DoRequest($"people/{playerId}")
+            ).Players[0];
         }
 
         /// <summary>

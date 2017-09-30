@@ -7,6 +7,9 @@ using Newtonsoft.Json;
 
 namespace NHLDotNet.Model
 {
+    /// <summary>
+    /// Represents the linescore for a game
+    /// </summary>
     public class LineScore
     {
         [JsonProperty("franchiseId")]

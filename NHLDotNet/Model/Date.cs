@@ -7,6 +7,9 @@ using Newtonsoft.Json;
 
 namespace NHLDotNet.Model
 {
+    /// <summary>
+    /// Represents a date on which games are played
+    /// </summary>
     public class Date
     {
         [JsonProperty("date")]

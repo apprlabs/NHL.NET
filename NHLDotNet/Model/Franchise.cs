@@ -7,6 +7,9 @@ using Newtonsoft.Json;
 
 namespace NHLDotNet.Model
 {
+    /// <summary>
+    /// Represents a franchise
+    /// </summary>
     public class Franchise
     {
         [JsonProperty("franchiseId")]

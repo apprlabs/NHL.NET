@@ -7,6 +7,9 @@ using Newtonsoft.Json;
 
 namespace NHLDotNet.Model
 {
+    /// <summary>
+    /// The outter wrapper for a request for divisions
+    /// </summary>
     public class DivisionResponse
     {
         [JsonProperty("copyright")]

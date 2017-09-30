@@ -7,6 +7,9 @@ using Newtonsoft.Json;
 
 namespace NHLDotNet.Model
 {
+    /// <summary>
+    /// Represents a game
+    /// </summary>
     public class Game
     {
         [JsonProperty("gamePk")]
@@ -28,7 +31,7 @@ namespace NHLDotNet.Model
         public Status Status { get; set; }
 
         [JsonProperty("teams")]
-        public Teams Teams { get; set; }
+        public GameTeams Teams { get; set; }
 
         [JsonProperty("linescore")]
         public LineScore LineScore { get; set; }

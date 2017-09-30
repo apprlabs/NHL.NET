@@ -7,6 +7,9 @@ using Newtonsoft.Json;
 
 namespace NHLDotNet.Model
 {
+    /// <summary>
+    /// Represents a team in shootout info
+    /// </summary>
     public class ShootoutInfoTeam
     {
         [JsonProperty("scores")]

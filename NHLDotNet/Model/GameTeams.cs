@@ -7,7 +7,10 @@ using Newtonsoft.Json;
 
 namespace NHLDotNet.Model
 {
-    public class Teams
+    /// <summary>
+    /// Represents teams in a game
+    /// </summary>
+    public class GameTeams
     {
         [JsonProperty("away")]
         public GameTeam Away { get; set; }

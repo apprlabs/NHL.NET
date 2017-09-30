@@ -7,6 +7,9 @@ using Newtonsoft.Json;
 
 namespace NHLDotNet.Model
 {
+    /// <summary>
+    /// Represents a period
+    /// </summary>
     public class Period
     {
         [JsonProperty("periodType")]

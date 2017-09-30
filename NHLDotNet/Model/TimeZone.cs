@@ -7,6 +7,9 @@ using Newtonsoft.Json;
 
 namespace NHLDotNet.Model
 {
+    /// <summary>
+    /// Represents a timezone
+    /// </summary>
     public class TimeZone
     {
         [JsonProperty("id")]

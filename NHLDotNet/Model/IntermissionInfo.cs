@@ -7,6 +7,9 @@ using Newtonsoft.Json;
 
 namespace NHLDotNet.Model
 {
+    /// <summary>
+    /// Represents a intermission info
+    /// </summary>
     public class IntermissionInfo
     {
         [JsonProperty("intermissionTimeRemaining")]

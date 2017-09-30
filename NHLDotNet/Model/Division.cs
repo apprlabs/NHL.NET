@@ -7,6 +7,9 @@ using Newtonsoft.Json;
 
 namespace NHLDotNet.Model
 {
+    /// <summary>
+    /// Represents a division
+    /// </summary>
     public class Division
     {
         [JsonProperty("id")]

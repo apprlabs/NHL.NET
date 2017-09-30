@@ -7,6 +7,9 @@ using Newtonsoft.Json;
 
 namespace NHLDotNet.Model
 {
+    /// <summary>
+    /// Represents a status for a game
+    /// </summary>
     public class Status
     {
         [JsonProperty("abstractGameState")]

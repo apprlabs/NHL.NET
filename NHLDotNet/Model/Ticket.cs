@@ -7,6 +7,9 @@ using Newtonsoft.Json;
 
 namespace NHLDotNet.Model
 {
+    /// <summary>
+    /// Represents a ticket
+    /// </summary>
     public class Ticket
     {
         [JsonProperty("ticketType")]

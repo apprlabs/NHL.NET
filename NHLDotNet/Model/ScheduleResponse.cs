@@ -7,6 +7,9 @@ using Newtonsoft.Json;
 
 namespace NHLDotNet.Model
 {
+    /// <summary>
+    /// The outter wrapper for a request for schedules
+    /// </summary>
     public class ScheduleResponse
     {
         [JsonProperty("copyright")]
