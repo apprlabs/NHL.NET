@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using Newtonsoft.Json;
+using System.Threading.Tasks;
 
 namespace NHLDotNet
 {
@@ -13,21 +14,27 @@ namespace NHLDotNet
     /// </summary>
     public class Client
     {
-        const string URL = "https://statsapi.web.nhl.com/api/v1/";
-
+        private readonly string _baseUri;
+        
         /// <summary>
         /// The HTTP Client for interacting with the service
         /// </summary>
-        protected HttpClient HttpClient = new HttpClient();
+        protected readonly HttpClient _httpClient;
+
+        public Client(string apiUrl = null, HttpClientHandler httpClientHandler = null)
+        {
+            _baseUri = apiUrl == null ? "https://statsapi.web.nhl.com/api/v1/" : apiUrl;
+            _httpClient = httpClientHandler == null ? new HttpClient() : new HttpClient(httpClientHandler);
+        }
 
         /// <summary>
         /// Gets all active conferences
         /// </summary>
         /// <returns>The conference</returns>
-        public List<Conference> GetConferences()
+        public async Task<List<Conference>> GetConferences()
         {
             return JsonConvert.DeserializeObject<ConferenceResponse>(
-                DoRequest("conferences")
+                await DoRequest("conferences")
             ).Conferences;
         }
 
@@ -36,10 +43,10 @@ namespace NHLDotNet
         /// </summary>
         /// <param name="conferenceId">The ID of the conference to retrieve</param>
         /// <returns>The conferences</returns>
-        public Conference GetConference(int conferenceId)
+        public async Task<Conference> GetConference(int conferenceId)
         {
             return JsonConvert.DeserializeObject<ConferenceResponse>(
-                DoRequest(String.Format("{0}{1}", "conferences/", conferenceId))
+                await DoRequest($"conferences/{conferenceId}")
             ).Conferences[0];
         }
 
@@ -47,10 +54,10 @@ namespace NHLDotNet
         /// Gets all active divisions
         /// </summary>
         /// <returns>The division</returns>
-        public List<Division> GetDivisions()
+        public async Task<List<Division>> GetDivisions()
         {
             return JsonConvert.DeserializeObject<DivisionResponse>(
-                DoRequest("divisions")
+                await DoRequest("divisions")
             ).Divisions;
         }
 
@@ -59,10 +66,10 @@ namespace NHLDotNet
         /// </summary>
         /// <param name="divisionId">The ID of the division to retrieve</param>
         /// <returns>The divisions</returns>
-        public Division GetDivision(int divisionId)
+        public async Task<Division> GetDivision(int divisionId)
         {
             return JsonConvert.DeserializeObject<DivisionResponse>(
-                DoRequest(String.Format("{0}{1}", "divisions/", divisionId))
+                await DoRequest($"divisions/{divisionId}")
             ).Divisions[0];
         }
 
@@ -70,10 +77,10 @@ namespace NHLDotNet
         /// Gets all active franchises
         /// </summary>
         /// <returns>The franchise</returns>
-        public List<Franchise> GetFranchises()
+        public async Task<List<Franchise>> GetFranchises()
         {
             return JsonConvert.DeserializeObject<FranchiseResponse>(
-                DoRequest("franchises")
+                await DoRequest("franchises")
             ).Franchises;
         }
 
@@ -82,10 +89,10 @@ namespace NHLDotNet
         /// </summary>
         /// <param name="franchiseId">The ID of the franchise to retrieve</param>
         /// <returns>The franchises</returns>
-        public Franchise GetFranchise(int franchiseId)
+        public async Task<Franchise> GetFranchise(int franchiseId)
         {
             return JsonConvert.DeserializeObject<FranchiseResponse>(
-                DoRequest(String.Format("{0}{1}", "franchises/", franchiseId))
+                await DoRequest($"franchises/{franchiseId}")
             ).Franchises[0];
         }
 
@@ -93,10 +100,10 @@ namespace NHLDotNet
         /// Gets the games for today's date
         /// </summary>
         /// <returns>The games for today's date</returns>
-        public Date GetSchedule()
+        public async Task<Date> GetSchedule()
         {
             return JsonConvert.DeserializeObject<ScheduleResponse>(
-                DoRequest("schedule")
+                await DoRequest("schedule")
             ).Dates[0];
         }
 
@@ -105,10 +112,10 @@ namespace NHLDotNet
         /// </summary>
         /// <param name="request">The options to retrieve games by</param>
         /// <returns>Games matching the request</returns>
-        public List<Date> GetSchedule(ScheduleRequest request)
+        public async Task<List<Date>> GetSchedule(ScheduleRequest request)
         {
             return JsonConvert.DeserializeObject<ScheduleResponse>(
-                DoRequest(String.Format("{0}?{1}", "schedule", request.ToString()))
+                await DoRequest($"schedule?{request}")
             ).Dates;
         }
 
@@ -116,10 +123,10 @@ namespace NHLDotNet
         /// Gets all active teams
         /// </summary>
         /// <returns>The team</returns>
-        public List<Team> GetTeams()
+        public async Task<List<Team>> GetTeams()
         {
             return JsonConvert.DeserializeObject<TeamResponse>(
-                DoRequest("teams")
+                await DoRequest("teams")
             ).Teams;
         }
 
@@ -128,10 +135,10 @@ namespace NHLDotNet
         /// </summary>
         /// <param name="teamId">The ID of the team to retrieve</param>
         /// <returns>The teams</returns>
-        public Team GetTeam(int teamId)
+        public async Task<Team> GetTeam(int teamId)
         {
             return JsonConvert.DeserializeObject<TeamResponse>(
-                DoRequest(String.Format("{0}{1}", "teams/", teamId))
+                await DoRequest($"teams/{teamId}")
             ).Teams[0];
         }
 
@@ -140,11 +147,14 @@ namespace NHLDotNet
         /// </summary>
         /// <param name="endpoint">The endpoint to get data from</param>
         /// <returns>The result from the request</returns>
-        protected string DoRequest(string endpoint)
+        protected async Task<string> DoRequest(string endpoint)
         {
-            try {
-                return HttpClient.GetStringAsync(String.Format("{0}{1}", URL, endpoint)).Result;
-            } catch {
+            try 
+            {
+                return await _httpClient.GetStringAsync($"{_baseUri}{endpoint}");
+            } 
+            catch 
+            {
                 throw new RequestException("Service request failed");
             }
         }
