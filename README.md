@@ -63,3 +63,9 @@ With your client, you can now query the NHL dataset.
     * Gets all active teams 
   * `client.GetTeam(int teamId)`
     * Gets a specific team
+
+## Samples
+See `samples/*` for more
+
+## Testing
+To test, run `cd tests/NHLDotNet.Test && dotnet test`
