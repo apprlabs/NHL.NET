@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NHLDotNet\NHLDotNet.csproj" />
+    <ProjectReference Include="..\..\src\NHLDotNet\NHLDotNet.csproj" />
   </ItemGroup>
 
 </Project>

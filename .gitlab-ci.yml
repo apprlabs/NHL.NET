@@ -11,4 +11,4 @@ build:
 test:
   stage: test
   script:
-    - 'cd NHLDotNet.Test && dotnet test'
+    - 'cd tests/NHLDotNet.Test && dotnet test'
