@@ -51,11 +51,11 @@ With your client, you can now query the NHL dataset.
       * `GameType` - Get only preseason, regular season, or postseason games
       * `Date` - Get games for a specific date
       * `ExpandOptions` - Gets additional content for a game. Available options are:
-        * `Teams` - Get details for teams in the game response
-        * `Broadcasts` - Get details for broadcasts in the game response
-        * `Linescore` - Get details for linescore in the game response
-        * `Tickets` - Get details for tickets in the game response
-        * `MediaGuide` - Get the media guide (listings) in the game response
+          * `Teams` - Get details for teams in the game response
+          * `Broadcasts` - Get details for broadcasts in the game response
+          * `Linescore` - Get details for linescore in the game response
+          * `Tickets` - Get details for tickets in the game response
+          * `MediaGuide` - Get the media guide (listings) in the game response
       * `Season` - Get all games for a season. Season IDs are `YYYY(YYYY+1)` (e.g. 20172018).
 
 #### Teams
