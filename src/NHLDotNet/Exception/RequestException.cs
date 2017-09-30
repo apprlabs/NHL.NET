@@ -2,14 +2,14 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 using System;
-using System.Collections.Generic;
+using System.Net.Http;
 
 namespace NHLDotNet.Exception
 {
     /// <summary>
     /// Represents an exception when communicating with the service
     /// </summary>
-    public class RequestException : System.Exception
+    public class RequestException : HttpRequestException
     {
         /// <summary>
         /// Constructor
