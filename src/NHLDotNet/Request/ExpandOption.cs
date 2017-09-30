@@ -56,7 +56,7 @@ namespace NHLDotNet.Request
         /// <summary>
         /// Get an instance to expand media in the schedule response
         /// </summary>
-        public static ExpandOption Media { 
+        public static ExpandOption MediaGuide { 
             get { return new ExpandOption("schedule.game.content.media.epg"); } 
         }
     }
