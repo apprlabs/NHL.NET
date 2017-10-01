@@ -69,3 +69,8 @@ See `samples/*` for more
 
 ## Testing
 To test, run `cd tests/NHLDotNet.Test && dotnet test`
+
+If you want to only run a specific suite, tests are organized into Integration (live calls) and Unit (run against mock).
+
+  * `dotnet test --filter "TestCategory=Unit"`
+  * `dotnet test --filter "TestCategory=Integration"`

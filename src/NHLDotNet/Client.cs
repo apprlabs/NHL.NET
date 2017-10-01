@@ -189,7 +189,7 @@ namespace NHLDotNet
         /// </summary>
         /// <param name="endpoint">The endpoint to get data from</param>
         /// <returns>The result from the request</returns>
-        protected async Task<string> DoRequest(string endpoint)
+        protected virtual async Task<string> DoRequest(string endpoint)
         {
             try 
             {

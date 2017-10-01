@@ -1,0 +1,11 @@
+{
+  "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2017. All Rights Reserved.",
+  "franchises" : [ {
+    "franchiseId" : 1,
+    "firstSeasonId" : 19171918,
+    "mostRecentTeamId" : 8,
+    "teamName" : "Canadiens",
+    "locationName" : "Montreal",
+    "link" : "/api/v1/franchises/1"
+  } ]
+}
