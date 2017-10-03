@@ -42,7 +42,8 @@ namespace NHLDotNet.Request
         public void SetGameType(GameType gameType)
         {
             var type = "";
-            switch (gameType) {
+            switch (gameType) 
+            {
                 case GameType.PreSeason: 
                     type = "PR"; 
                     break;
@@ -66,7 +67,8 @@ namespace NHLDotNet.Request
         public void SetDate(DateTime date)
         {
             // clear out season if we're passing in a specific date
-            if (Params.ContainsKey("season")) {
+            if (Params.ContainsKey("season")) 
+            {
                 Params.Remove("season");
             }
 
@@ -107,7 +109,8 @@ namespace NHLDotNet.Request
         public void SetSeason(int seasonId)
         {
             // clear out the date if we're requesting an entire season
-            if (Params.ContainsKey("date")) {
+            if (Params.ContainsKey("date")) 
+            {
                 Params.Remove("date");
             }
 
@@ -122,12 +125,15 @@ namespace NHLDotNet.Request
         {
             // add any params to query by
             List<string> query = new List<string>();
-            foreach (var param in Params) {
+
+            foreach (var param in Params) 
+            {
                 query.Add(String.Format("{0}={1}", param.Key, param.Value));
             }
 
             // add anything we need to expand as well
-            if (ExpandOptions.Count > 0) {
+            if (ExpandOptions.Count > 0) 
+            {
                 query.Add(String.Format("expand={0}", ExpandOptions.ToString()));
             }
 

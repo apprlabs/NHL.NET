@@ -20,16 +20,15 @@ namespace NHLDotNet
         /// <summary>
         /// The base URI to make calls to
         /// </summary>
-        private readonly string _baseUri;
+        private string _baseUri = "https://statsapi.web.nhl.com/api/v1/";
         
         /// <summary>
         /// The HTTP Client for interacting with the service
         /// </summary>
         protected readonly HttpClient _httpClient;
 
-        public Client(string apiUrl = null, HttpClientHandler httpClientHandler = null)
+        public Client(HttpClientHandler httpClientHandler = null)
         {
-            _baseUri = apiUrl == null ? "https://statsapi.web.nhl.com/api/v1/" : apiUrl;
             _httpClient = httpClientHandler == null ? new HttpClient() : new HttpClient(httpClientHandler);
         }
 
